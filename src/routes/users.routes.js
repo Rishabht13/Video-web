@@ -1,11 +1,11 @@
-import {Router} from 'express';
-import { registerUser } from '../controllers/user.controller.js';
-import {upload} from '../middlewares/multer.middleware.js'
+import { Router } from "express";
+import { registerUser } from "../controllers/user.controller.js";
+import { upload } from "../middlewares/multer.middleware.js";
 
 const router = Router();
 
 router.route("/register").post(
-  upload.any([
+  upload.fields([
     {
       name: "avatar",
       maxCount: 1,
@@ -15,10 +15,6 @@ router.route("/register").post(
       maxCount: 1,
     },
   ]),
-  (req, res, next) => {
-    console.log("FILES AFTER MULTER:", req.files);
-    next();
-  },
   registerUser
 );
 

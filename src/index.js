@@ -16,7 +16,3 @@ connectDB()
   .catch((err) => {
     console.log("MongoDB connection failed", err);
   });
-
-  console.log("INDEX ENV CHECK");
-console.log(process.env.CLOUDINARY_CLOUD_NAME);
-console.log(process.env.CLOUDINARY_API_KEY);
